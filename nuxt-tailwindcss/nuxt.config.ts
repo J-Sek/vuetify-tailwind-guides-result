@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-21',
   devtools: { enabled: true },
+  // ssr: false,
   modules: [
     '@nuxtjs/tailwindcss',
     'vuetify-nuxt-module',
@@ -20,7 +21,7 @@ export default defineNuxtConfig({
     },
     vuetifyOptions: {
       theme: {
-        defaultTheme: 'system',
+        defaultTheme: 'dark', // default 'system' requires `ssr: false`
         utilities: false,
       },
       display: {

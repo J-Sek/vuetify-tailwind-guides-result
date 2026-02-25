@@ -1,6 +1,6 @@
-@import "tailwindcss/theme" layer(tailwind.theme);
-/* @import "tailwindcss/preflight" layer(tailwind.reset); — skipped, Vuetify provides its own reset */
-@import "tailwindcss/utilities" layer(tailwind.utilities);
+@import "tailwindcss/theme" layer(tailwind-theme);
+@import "tailwindcss/preflight" layer(tailwind-reset);
+@import "tailwindcss/utilities" layer(tailwind-utilities);
 
 /* --- Dark/light mode ---------------------------------------------------- */
 /* Vuetify uses .v-theme--dark / .v-theme--light instead of .dark           */
@@ -65,3 +65,110 @@
 @source inline('text-success');
 @source inline('bg-error');
 @source inline('text-error');
+
+
+
+@utility text-h1 {
+  font-family: var(--font-heading, inherit);
+  font-size: 6rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.015625em;
+  text-transform: none;
+}
+@utility text-h2 {
+  font-family: var(--font-heading, inherit);
+  font-size: 3.75rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.0083333333em;
+  text-transform: none;
+}
+@utility text-h3 {
+  font-family: var(--font-heading, inherit);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: normal;
+  text-transform: none;
+}
+@utility text-h4 {
+  font-family: var(--font-heading, inherit);
+  font-size: 2.125rem;
+  font-weight: 400;
+  line-height: 1.175;
+  letter-spacing: .0073529412em;
+  text-transform: none;
+}
+@utility text-h5 {
+  font-family: var(--font-heading, inherit);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.333;
+  letter-spacing: normal;
+  text-transform: none;
+}
+@utility text-h6 {
+  font-family: var(--font-heading, inherit);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .0125em;
+  text-transform: none;
+}
+@utility text-subtitle-1 {
+  font-family: var(--font-body, inherit);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: .009375em;
+  text-transform: none;
+}
+@utility text-subtitle-2 {
+  font-family: var(--font-body, inherit);
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: .0071428571em;
+  text-transform: none;
+}
+@utility text-body-1 {
+  font-family: var(--font-body, inherit);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .03125em;
+  text-transform: none;
+}
+@utility text-body-2 {
+  font-family: var(--font-body, inherit);
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.425;
+  letter-spacing: .0178571429em;
+  text-transform: none;
+}
+@utility text-button {
+  font-family: var(--font-body, inherit);
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 2.6;
+  letter-spacing: .0892857143em;
+  text-transform: uppercase;
+}
+@utility text-caption {
+  font-family: var(--font-body, inherit);
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 1.667;
+  letter-spacing: .0333333333em;
+  text-transform: none;
+}
+@utility text-overline {
+  font-family: var(--font-body, inherit);
+  font-size: .75rem;
+  font-weight: 500;
+  line-height: 2.667;
+  letter-spacing: .1666666667em;
+  text-transform: uppercase;
+}
