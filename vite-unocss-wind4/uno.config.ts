@@ -16,6 +16,10 @@ export default defineConfig({
   ],
   theme: {
     breakpoint: breakpoints.forUnoCSS,
+    font: {
+      heading: "'Roboto', sans-serif",
+      body: "'Roboto', sans-serif",
+    },
     colors: {
       primary: 'rgb(var(--v-theme-primary))',
     },

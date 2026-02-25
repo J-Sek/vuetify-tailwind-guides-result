@@ -1,15 +1,15 @@
 <template>
-  <v-container class="fill-height" max-width="900">
+  <v-container class="fill-height d-flex flex-column justify-center" max-width="900">
     <div>
       <v-img
-        class="mb-4"
+        class="mb-4 font-weight-bold"
         height="150"
         src="@/assets/logo.png"
       />
 
       <div class="mb-8 text-center">
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
-        <h1 class="text-h2 font-weight-bold">Vuetify</h1>
+        <div class="text-h2 font-weight-bold">Vuetify</div>
       </div>
 
       <v-row>
@@ -18,18 +18,19 @@
             class="py-4"
             color="surface-variant"
             image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
-            prepend-icon="mdi-rocket-launch-outline"
             rounded="lg"
             variant="tonal"
           >
+            <template #prepend>
+              <v-avatar icon="mdi-rocket-launch-outline" size="60" variant="tonal" class="ml-2 mr-4" />
+            </template>
+
             <template #image>
               <v-img position="top right" />
             </template>
 
             <template #title>
-              <h2 class="text-h5 font-weight-bold">
-                Get started
-              </h2>
+              <div class="text-h5 font-weight-bold">Get started</div>
             </template>
 
             <template #subtitle>
@@ -46,14 +47,17 @@
             class="py-4"
             color="surface-variant"
             :href="link.href"
-            :prepend-icon="link.icon"
             rel="noopener noreferrer"
             rounded="lg"
             :subtitle="link.subtitle"
             target="_blank"
             :title="link.title"
             variant="tonal"
-          />
+          >
+            <template #prepend>
+              <v-avatar :icon="link.icon" size="60" variant="tonal" class="ml-2 mr-4" />
+            </template>
+          </v-card>
         </v-col>
       </v-row>
     </div>

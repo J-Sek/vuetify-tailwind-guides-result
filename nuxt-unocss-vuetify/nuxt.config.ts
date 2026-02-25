@@ -1,4 +1,5 @@
-import { presetVuetify } from 'unocss-preset-vuetify'
+// import { presetVuetify } from 'unocss-preset-vuetify'
+import { presetVuetify } from '../../unocss-preset-vuetify/dist/index.mjs'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -19,11 +20,22 @@ export default defineNuxtConfig({
       disableVuetifyStyles: true,
       styles: { configFile: 'assets/styles/settings.scss' },
     },
+    vuetifyOptions: {
+      theme: {
+        defaultTheme: 'dark',
+      },
+    },
   },
 
   unocss: {
     presets: [
-      presetVuetify(),
+      presetVuetify({
+        font: {
+          heading: 'Roboto, sans-serif',
+          body: 'Roboto, sans-serif',
+        },
+        typography: 'md2',
+      }),
     ],
     safelist: [
       ...Array.from({ length: 6 }, (_, i) => `elevation-${i}`),
