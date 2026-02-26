@@ -1,5 +1,6 @@
 import { defineConfig } from 'unocss'
 import presetWind4 from '@unocss/preset-wind4'
+import { elevationPresets } from 'unocss-preset-vuetify'
 import * as breakpoints from './src/theme/breakpoints'
 
 export default defineConfig({
@@ -21,6 +22,10 @@ export default defineConfig({
       primary: 'rgb(var(--v-theme-primary))',
     },
   },
+  rules: [
+    ...Object.entries(elevationPresets.md3)
+      .map(([level, css]) => [`elevation-${level}`, css])
+  ],
   safelist: [
     ...Array.from({ length: 6 }, (_, i) => `elevation-${i}`),
     ...['', '-0', '-sm', '-lg', '-xl', '-pill', '-circle', '-shaped'].map(suffix => `rounded${suffix}`),

@@ -1,5 +1,6 @@
 import presetWind4 from '@unocss/preset-wind4'
 import * as breakpoints from './app/theme/breakpoints'
+import { elevationPresets } from 'unocss-preset-vuetify'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -46,6 +47,10 @@ export default defineNuxtConfig({
         primary: 'rgb(var(--v-theme-primary))',
       },
     },
+    rules: [
+      ...Object.entries(elevationPresets.md3)
+        .map(([level, css]) => [`elevation-${level}`, css])
+    ],
     safelist: [
       ...Array.from({ length: 6 }, (_, i) => `elevation-${i}`),
       ...['', '-0', '-sm', '-lg', '-xl', '-pill', '-circle', '-shaped'].map(suffix => `rounded${suffix}`),
