@@ -1,6 +1,6 @@
-@import "tailwindcss/theme" layer(tailwind.theme);
-/* @import "tailwindcss/preflight" layer(tailwind.reset); — skipped, Vuetify provides its own reset */
-@import "tailwindcss/utilities" layer(tailwind.utilities);
+@import "tailwindcss/theme" layer(tailwind-theme);
+@import "tailwindcss/preflight" layer(tailwind-reset);
+@import "tailwindcss/utilities" layer(tailwind-utilities);
 
 /* --- Dark/light mode ---------------------------------------------------- */
 /* Vuetify uses .v-theme--dark / .v-theme--light instead of .dark           */

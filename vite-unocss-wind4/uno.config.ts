@@ -5,9 +5,6 @@ import * as breakpoints from './src/theme/breakpoints'
 export default defineConfig({
   presets: [
     presetWind4({
-      preflights: {
-        reset: false,
-      },
       dark: {
         dark: '.v-theme--dark',
         light: '.v-theme--light',
@@ -29,7 +26,7 @@ export default defineConfig({
     ...['', '-0', '-sm', '-lg', '-xl', '-pill', '-circle', '-shaped'].map(suffix => `rounded${suffix}`),
   ],
   outputToCssLayers: {
-    cssLayerName: (layer) => layer === 'properties' ? null : `uno.${layer}`,
+    cssLayerName: (layer) => layer === 'properties' ? null : `uno-${layer}`,
   },
   shortcuts: {
     'text-display-large':   'font-heading normal-case text-[3.5625rem] font-[400] leading-[1.1228] tracking-[-.0044em]',
