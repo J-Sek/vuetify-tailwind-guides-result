@@ -35,10 +35,11 @@ export default defineNuxtConfig({
           body: 'Roboto, sans-serif',
         },
         typography: 'md2',
+        elevation: 'md2',
       }),
     ],
     safelist: [
-      ...Array.from({ length: 6 }, (_, i) => `elevation-${i}`),
+      ...Array.from({ length: 25 }, (_, i) => `elevation-${i}`),
       ...['', '-0', '-sm', '-lg', '-xl', '-pill', '-circle', '-shaped'].map(suffix => `rounded${suffix}`),
     ],
     outputToCssLayers: {

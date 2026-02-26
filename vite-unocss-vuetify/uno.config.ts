@@ -1,6 +1,5 @@
 import { defineConfig } from 'unocss'
-// import { presetVuetify } from 'unocss-preset-vuetify'
-import { presetVuetify } from '../../unocss-preset-vuetify/dist/index.mjs'
+import { presetVuetify } from 'unocss-preset-vuetify'
 
 export default defineConfig({
   presets: [
@@ -10,6 +9,7 @@ export default defineConfig({
         body: 'Roboto, sans-serif',
       },
       typography: 'md3',
+      elevation: 'md3',
     }),
   ],
   safelist: [
