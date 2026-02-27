@@ -8,6 +8,8 @@
       position="absolute"
       location="top right"
       class="ma-2"
+      color="secondary"
+      elevation="2"
       @click="$vuetify.theme.cycle()"
     />
   </v-app>

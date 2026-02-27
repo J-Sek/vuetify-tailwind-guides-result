@@ -1,4 +1,6 @@
 @use 'vuetify/settings' with (
   $color-pack: false,
   $utilities: false,
+  $application-background: var(--v-theme-background),
+  $badge-border-color: var(--v-theme-background),
 );

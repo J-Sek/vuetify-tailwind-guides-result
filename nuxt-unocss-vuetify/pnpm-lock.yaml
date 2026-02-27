@@ -34,8 +34,8 @@ importers:
         specifier: ^66.0.0
         version: 66.6.1(@unocss/webpack@66.6.1(webpack@5.105.2(esbuild@0.25.12)))(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
       unocss-preset-vuetify:
-        specifier: ^0.1.1
-        version: 0.1.1(unocss@66.6.1(@unocss/webpack@66.6.1(webpack@5.105.2(esbuild@0.25.12)))(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))
+        specifier: ^0.2.0
+        version: 0.2.0(unocss@66.6.1(@unocss/webpack@66.6.1(webpack@5.105.2(esbuild@0.25.12)))(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)))
 
 packages:
 
@@ -3447,8 +3447,8 @@ packages:
     resolution: {integrity: sha512-8rqAmtJV8o60x46kBAJKtHpJDJWkA2xcBqWKPI14MgUb05o1pnpnCnXSxedUXyeq7p8fR5g3pTo2BaswZ9lD9A==}
     engines: {node: '>=18.12.0'}
 
-  unocss-preset-vuetify@0.1.1:
-    resolution: {integrity: sha512-yWPVoBcmhWqQAT2YlYfFNXN4Bx9jMbk5/BitJlWtMWlSIeDy4HjQfjNBwlLHCv+HmX7r9QwvhtvCRkDskuBtKQ==}
+  unocss-preset-vuetify@0.2.0:
+    resolution: {integrity: sha512-EZ4DNZBmMenTU5kzV83Rr/J3O8Wl3KSQit2cefW3e6rptbtldSjYXC6MainzbO/pAKfbMAkHOKw4jpxXtepMRg==}
     peerDependencies:
       unocss: '>=0.50.0'
 
@@ -7543,7 +7543,7 @@ snapshots:
       unplugin: 2.3.11
       unplugin-utils: 0.3.1
 
-  unocss-preset-vuetify@0.1.1(unocss@66.6.1(@unocss/webpack@66.6.1(webpack@5.105.2(esbuild@0.25.12)))(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))):
+  unocss-preset-vuetify@0.2.0(unocss@66.6.1(@unocss/webpack@66.6.1(webpack@5.105.2(esbuild@0.25.12)))(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))):
     dependencies:
       unocss: 66.6.1(@unocss/webpack@66.6.1(webpack@5.105.2(esbuild@0.25.12)))(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
 

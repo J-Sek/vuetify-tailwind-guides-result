@@ -1,0 +1,113 @@
+@layer vuetify-overrides {
+  .v-time-picker-clock,
+  .v-theme-provider {
+    background: var(--v-theme-background);
+    color: var(--v-theme-on-background);
+  }
+
+  // .v-card--variant-elevated {
+  //   box-shadow: 0px 1px 2px 0px hsla(var(--brand-hue), 50%, 10%, 0.3), 0px 1px 3px 1px hsla(var(--brand-hue), 50%, 10%, 0.15);
+  // }
+
+  .v-card__overlay {
+    opacity: 0;
+  }
+}
+
+.bg-primary { background-color: var(--v-theme-primary); color: var(--v-theme-on-primary); }
+.text-primary { color: var(--v-theme-primary); }
+
+.bg-secondary { background-color: var(--v-theme-secondary); color: var(--v-theme-on-secondary); }
+.text-secondary { color: var(--v-theme-secondary); }
+
+.bg-background { background-color: var(--v-theme-background); color: var(--v-theme-on-background); }
+.text-background { color: var(--v-theme-background); }
+
+.bg-surface { background-color: var(--v-theme-surface); color: var(--v-theme-on-surface); }
+.text-surface { color: var(--v-theme-surface); }
+
+@property --v-elevation-overlay {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+
+@layer uno.utilities {
+  // standardized levels 0-3
+  .v-theme--light,
+  .v-theme--dark {
+
+    .v-card--variant-elevated,
+    .v-field--variant-solo,
+    .v-field--variant-solo-filled,
+    .v-expansion-panel__shadow:not(.bg-transparent),
+    [class*="elevation-"] {
+      box-shadow:
+        0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)),
+        0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .01)),
+        0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .02)),
+        0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .02)),
+        0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)),
+        0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength)) !important;
+
+      --v-elevation-overlay: color-mix(in srgb, #fff var(--elevation-overlay-level), transparent);
+    }
+  }
+
+  .elevation-overlay {
+    background-image: linear-gradient(var(--v-elevation-overlay), var(--v-elevation-overlay));
+  }
+
+  .v-theme--light {
+    --surface-shadow: var(--brand-hue) 50% 20%;
+    --v-elevation-overlay-color: #fff;
+
+    --elevation-overlay-level-1: 20%;
+    --elevation-overlay-level-2: 50%;
+    --elevation-overlay-level-3: 80%;
+
+    --shadow-strength-1: .005;
+    --shadow-strength-2: .02;
+    --shadow-strength-3: .03;
+  }
+
+  .v-theme--dark {
+    --surface-shadow: var(--brand-hue) 50% 3%;
+    --v-elevation-overlay-color: #fff;
+
+    --elevation-overlay-level-1: 4%;
+    --elevation-overlay-level-2: 8%;
+    --elevation-overlay-level-3: 12%;
+
+    --shadow-strength-1: .025;
+    --shadow-strength-2: .1;
+    --shadow-strength-3: .2;
+  }
+
+  .transition-elevation {
+    transition: .2s ease-in;
+    transition-property: scale, box-shadow, --v-elevation-overlay;
+  }
+
+  .v-card--variant-elevated,
+  .v-field--variant-solo,
+  .v-field--variant-solo-filled,
+  .v-expansion-panel__shadow:not(.bg-transparent) {
+    --elevation-overlay-level: var(--elevation-overlay-level-1);
+    --shadow-strength: var(--shadow-strength-1);
+
+    transition: .2s ease-in;
+    transition-property: scale, box-shadow, --v-elevation-overlay;
+  }
+
+  .v-card:active {
+    _scale: .995;
+  }
+
+  .v-card {
+    border-radius: 44px;
+    // corner-shape: squircle;
+    corner-shape: superellipse(1.55);
+  }
+}
