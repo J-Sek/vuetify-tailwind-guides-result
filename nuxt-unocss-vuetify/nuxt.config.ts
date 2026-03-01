@@ -1,5 +1,4 @@
-// import { presetVuetify } from 'unocss-preset-vuetify'
-import { presetVuetify } from '../../unocss-preset-vuetify/dist/index.mjs'
+import { presetVuetify } from 'unocss-preset-vuetify'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -43,7 +42,7 @@ export default defineNuxtConfig({
       ...['', '-0', '-sm', '-lg', '-xl', '-pill', '-circle', '-shaped'].map(suffix => `rounded${suffix}`),
     ],
     outputToCssLayers: {
-      cssLayerName: (layer) => layer === 'properties' ? null : `uno.${layer}`,
+      cssLayerName: (layer) => layer === 'properties' ? null : `uno-${layer}`,
     },
   },
 })
