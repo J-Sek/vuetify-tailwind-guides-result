@@ -1,174 +1,77 @@
 @import "tailwindcss/theme" layer(tailwind-theme);
 @import "tailwindcss/preflight" layer(tailwind-reset);
 @import "tailwindcss/utilities" layer(tailwind-utilities);
-
-/* --- Dark/light mode ---------------------------------------------------- */
-/* Vuetify uses .v-theme--dark / .v-theme--light instead of .dark           */
-
 @custom-variant light (&:where(.v-theme--light, .v-theme--light *));
-@custom-variant dark  (&:where(.v-theme--dark,  .v-theme--dark  *));
+@custom-variant dark (&:where(.v-theme--dark, .v-theme--dark *));
 
-/* --- Theme overrides ---------------------------------------------------- */
 
 @theme {
-  --breakpoint-*: initial; /* reset Tailwind defaults */
-  /* keep in sync with vuetify plugin/config and settings.scss */
-  --breakpoint-xs:  0px;
-  --breakpoint-sm:  600px;
-  --breakpoint-md:  960px;
-  --breakpoint-lg:  1280px;
-  --breakpoint-xl:  1920px;
-  --breakpoint-xxl: 2560px;
+  --font-heading: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+
+  --breakpoint-*: initial;
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 840px;
+  --breakpoint-lg: 1145px;
+  --breakpoint-xl: 1545px;
+  --breakpoint-xxl: 2138px;
 
   --color-background:      rgb(var(--v-theme-background));
   --color-surface:         rgb(var(--v-theme-surface));
-  --color-surface-variant: rgb(var(--v-theme-surface-variant));
+  --color-on-surface:      rgb(var(--v-theme-on-surface));
   --color-primary:         rgb(var(--v-theme-primary));
   --color-success:         rgb(var(--v-theme-success));
   --color-warning:         rgb(var(--v-theme-warning));
   --color-error:           rgb(var(--v-theme-error));
   --color-info:            rgb(var(--v-theme-info));
+
 }
 
-/* --- Rounded (for Vuetify's rounded prop) ------------------------------- */
-/* The prop generates class names at runtime — force Tailwind to emit them  */
+/* safelist to ensure variables are always available */
+@source inline('font-heading');
+@source inline('font-body');
+@source inline('font-mono');
 
-@source inline('rounded-none');
-@source inline('rounded-sm');
-@source inline('rounded');
-@source inline('rounded-lg');
-@source inline('rounded-xl');
-
+/*
+  note: adopt and extend values from TailwindCSS
+*/
 @utility rounded-pill   { border-radius: 9999px }
-@utility rounded-circle { border-radius: 50% }
+@utility rounded-circle { border-radius: 50%    }
 @utility rounded-shaped { border-radius: 24px 0 }
 
-@source inline('rounded-pill');
-@source inline('rounded-circle');
-@source inline('rounded-shaped');
+@source inline('rounded'); /* .25rem */
+@source inline('rounded-{none,sm,md,lg,xl,2xl,3xl,full,pill,circle,shaped}');
 
-/* --- Elevation (for Vuetify's elevation prop) --------------------------- */
+/* MD3 elevation */
+@utility elevation-0 {
+  box-shadow: 0px 0px 0px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 0px 0px 0px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 0%, transparent);
+}
+@utility elevation-1 {
+  box-shadow: 0px 1px 2px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 1px 3px 1px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 2%, transparent);
+}
+@utility elevation-2 {
+  box-shadow: 0px 1px 2px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 2px 6px 2px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 4%, transparent);
+}
+@utility elevation-3 {
+  box-shadow: 0px 1px 3px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 4px 8px 3px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 6%, transparent);
+}
+@utility elevation-4 {
+  box-shadow: 0px 2px 3px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 6px 10px 4px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 8%, transparent);
+}
+@utility elevation-5 {
+  box-shadow: 0px 4px 4px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 8px 12px 6px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 10%, transparent);
+}
+@utility elevation-overlay {
+  background-image: linear-gradient(var(--v-elevation-overlay), var(--v-elevation-overlay));
+}
 
-@utility elevation-0 { box-shadow: none }
-@utility elevation-1 { box-shadow: var(--shadow-xs) }
-@utility elevation-2 { box-shadow: var(--shadow-sm) }
-@utility elevation-3 { box-shadow: var(--shadow-md) }
-@utility elevation-4 { box-shadow: var(--shadow-xl) }
-@utility elevation-5 { box-shadow: var(--shadow-2xl) }
-
+/* safelist for elevation="..." props */
 @source inline('elevation-{0,1,2,3,4,5}');
-
-/* safelist classes used dynamically via color="..." prop */
-@source inline('bg-primary');
-@source inline('text-primary');
-@source inline('bg-success');
-@source inline('text-success');
-@source inline('bg-error');
-@source inline('text-error');
-
-
-
-@utility text-h1 {
-  font-family: var(--font-heading, inherit);
-  font-size: 6rem;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.015625em;
-  text-transform: none;
-}
-@utility text-h2 {
-  font-family: var(--font-heading, inherit);
-  font-size: 3.75rem;
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -.0083333333em;
-  text-transform: none;
-}
-@utility text-h3 {
-  font-family: var(--font-heading, inherit);
-  font-size: 3rem;
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: normal;
-  text-transform: none;
-}
-@utility text-h4 {
-  font-family: var(--font-heading, inherit);
-  font-size: 2.125rem;
-  font-weight: 400;
-  line-height: 1.175;
-  letter-spacing: .0073529412em;
-  text-transform: none;
-}
-@utility text-h5 {
-  font-family: var(--font-heading, inherit);
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.333;
-  letter-spacing: normal;
-  text-transform: none;
-}
-@utility text-h6 {
-  font-family: var(--font-heading, inherit);
-  font-size: 1.25rem;
-  font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: .0125em;
-  text-transform: none;
-}
-@utility text-subtitle-1 {
-  font-family: var(--font-body, inherit);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.75;
-  letter-spacing: .009375em;
-  text-transform: none;
-}
-@utility text-subtitle-2 {
-  font-family: var(--font-body, inherit);
-  font-size: .875rem;
-  font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: .0071428571em;
-  text-transform: none;
-}
-@utility text-body-1 {
-  font-family: var(--font-body, inherit);
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: .03125em;
-  text-transform: none;
-}
-@utility text-body-2 {
-  font-family: var(--font-body, inherit);
-  font-size: .875rem;
-  font-weight: 400;
-  line-height: 1.425;
-  letter-spacing: .0178571429em;
-  text-transform: none;
-}
-@utility text-button {
-  font-family: var(--font-body, inherit);
-  font-size: .875rem;
-  font-weight: 500;
-  line-height: 2.6;
-  letter-spacing: .0892857143em;
-  text-transform: uppercase;
-}
-@utility text-caption {
-  font-family: var(--font-body, inherit);
-  font-size: .75rem;
-  font-weight: 400;
-  line-height: 1.667;
-  letter-spacing: .0333333333em;
-  text-transform: none;
-}
-@utility text-overline {
-  font-family: var(--font-body, inherit);
-  font-size: .75rem;
-  font-weight: 500;
-  line-height: 2.667;
-  letter-spacing: .1666666667em;
-  text-transform: uppercase;
-}

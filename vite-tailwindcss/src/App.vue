@@ -3,10 +3,10 @@
     <v-main>
       <HelloWorld />
       <v-btn
+        class="m-2"
         icon="mdi-theme-light-dark"
-        position="absolute"
         location="top right"
-        class="ma-2"
+        position="absolute"
         @click="$vuetify.theme.cycle()"
       />
     </v-main>
