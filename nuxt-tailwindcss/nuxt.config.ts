@@ -4,12 +4,20 @@ import { presetIcons } from 'unocss'
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-21',
   devtools: { enabled: true },
-  ssr: false,
+  // ssr: false,
   modules: [
     '@nuxt/fonts',
     '@unocss/nuxt',
     'vuetify-nuxt-module',
   ],
+
+  app: {
+    head: {
+      link: [
+        { rel: 'stylesheet', href: '/layers.css' }
+      ],
+    },
+  },
 
   postcss: {
     plugins: {
@@ -18,7 +26,6 @@ export default defineNuxtConfig({
   },
 
   css: [
-    'assets/styles/layers.css',
     'assets/styles/tailwind.css',
   ],
 
