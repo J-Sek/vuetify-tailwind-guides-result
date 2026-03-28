@@ -2,6 +2,7 @@
   <v-container class="fill-height d-flex flex-column justify-center" max-width="900">
     <div>
       <v-img
+        alt="Placeholder logo"
         class="mb-4 font-weight-bold"
         height="150"
         src="@/assets/logo.png"

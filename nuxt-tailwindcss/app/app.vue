@@ -1,15 +1,15 @@
 <template>
-  <v-app :theme="$vuetify.theme.global.name">
+  <v-app>
     <v-main>
       <nuxt-page />
-      <v-btn
-        icon="mdi-theme-light-dark"
-        position="absolute"
-        location="top right"
-        class="ma-2"
-        @click="$vuetify.theme.cycle()"
-      />
     </v-main>
+    <v-btn
+      class="m-2"
+      icon="mdi-theme-light-dark"
+      location="top right"
+      position="absolute"
+      @click="$vuetify.theme.cycle()"
+    />
   </v-app>
 </template>
 

@@ -4,24 +4,28 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   // ssr: false,
   modules: [
-    '@nuxtjs/tailwindcss',
+    '@nuxt/fonts',
     'vuetify-nuxt-module',
   ],
 
+  postcss: {
+    plugins: {
+      '@tailwindcss/postcss': {},
+    },
+  },
+
   css: [
     'assets/styles/layers.css',
-    'vuetify/styles',
     'assets/styles/tailwind.css',
   ],
 
   vuetify: {
     moduleOptions: {
-      disableVuetifyStyles: true,
       styles: { configFile: 'assets/styles/settings.scss' },
     },
     vuetifyOptions: {
       theme: {
-        defaultTheme: 'dark', // default 'system' requires `ssr: false`
+        defaultTheme: 'dark', // default 'system' requires `ssr: false` to avoid hydration warnings
         utilities: false,
       },
       display: {
