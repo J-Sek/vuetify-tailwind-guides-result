@@ -3,9 +3,9 @@
 @import "tailwindcss/utilities" layer(tailwind-utilities);
 
 @theme {
-  --font-heading: "Roboto", sans-serif;
-  --font-body: "Roboto", sans-serif;
-  --font-mono: "Roboto Mono", monospace;
+  --font-heading: system-ui, sans-serif;
+  --font-body: system-ui, sans-serif;
+  --font-mono: monospace;
 
   --color-background: rgb(var(--v-theme-background));
   --color-surface: rgb(var(--v-theme-surface));

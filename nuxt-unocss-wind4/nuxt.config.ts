@@ -1,5 +1,5 @@
 import type { StaticRule } from 'unocss'
-import { presetWind4, transformerDirectives } from 'unocss'
+import { presetIcons, presetWind4, transformerDirectives } from 'unocss'
 import { createThemeVariants, elevationPresets } from 'unocss-preset-vuetify'
 import * as breakpoints from './app/theme/breakpoints'
 
@@ -7,7 +7,7 @@ import * as breakpoints from './app/theme/breakpoints'
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-21',
   devtools: { enabled: true },
-  // ssr: false,
+  ssr: false,
   modules: [
     '@nuxt/fonts',
     '@unocss/nuxt',
@@ -31,12 +31,16 @@ export default defineNuxtConfig({
       theme: {
         defaultTheme: 'dark', // default 'system' requires `ssr: false` to avoid hydration warnings
       },
+      icons: {
+        defaultSet: 'unocss-mdi',
+      },
     },
   },
 
   unocss: {
     presets: [
       presetWind4(),
+      presetIcons(),
     ],
     transformers: [
       transformerDirectives(),
@@ -44,9 +48,9 @@ export default defineNuxtConfig({
     theme: {
       breakpoint: breakpoints.forUnoCSS,
       font: {
-        heading: 'Roboto, sans-serif',
-        body: 'Roboto, sans-serif',
-        mono: '"Roboto Mono", sans-serif',
+        heading: 'system-ui, sans-serif',
+        body: 'system-ui, sans-serif',
+        mono: 'monospace',
       },
       colors: {
         primary: 'rgb(var(--v-theme-primary))',

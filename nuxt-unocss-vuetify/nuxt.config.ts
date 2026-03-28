@@ -1,10 +1,11 @@
+import { presetIcons } from 'unocss'
 import { presetVuetify } from 'unocss-preset-vuetify'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-21',
   devtools: { enabled: true },
-  // ssr: false,
+  ssr: false,
   modules: [
     '@nuxt/fonts',
     '@unocss/nuxt',
@@ -24,6 +25,9 @@ export default defineNuxtConfig({
       theme: {
         defaultTheme: 'dark', // default 'system' requires `ssr: false` to avoid hydration warnings
       },
+      icons: {
+        defaultSet: 'unocss-mdi',
+      },
     },
   },
 
@@ -31,13 +35,14 @@ export default defineNuxtConfig({
     presets: [
       presetVuetify({
         font: {
-          heading: 'Roboto, sans-serif',
-          body: 'Roboto, sans-serif',
-          mono: '"Roboto Mono", sans-serif',
+          heading: 'system-ui, sans-serif',
+          body: 'system-ui, sans-serif',
+          mono: 'monospace',
         },
-        typography: 'md2',
-        elevation: 'md2',
+        typography: 'md3',
+        elevation: 'md3',
       }),
+      presetIcons(),
     ],
     safelist: [
       'font-heading', 'font-body', 'font-mono',

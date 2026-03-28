@@ -21,7 +21,7 @@
           variant="flat"
         >
           <template #prepend>
-            <v-avatar class="ml-2 mr-4" icon="mdi-rocket-launch-outline" size="60" variant="tonal" />
+            <v-avatar class="ml-2 mr-4" icon="i-mdi:rocket-launch-outline" size="60" variant="tonal" />
           </template>
 
           <template #image>
@@ -59,7 +59,7 @@
             <v-avatar :icon="link.icon" size="60" variant="tonal" class="ml-2 mr-4" />
           </template>
           <template #append>
-            <v-icon class="ml-1 opacity-0 transition group-hover:opacity-90 group-hover:-translate-x-1" icon="mdi-open-in-new" />
+            <v-icon class="ml-1 opacity-0 transition group-hover:opacity-90 group-hover:-translate-x-1" icon="i-mdi:open-in-new" />
           </template>
           <template #subtitle>
             <div class="line-clamp-2 text-wrap">{{ link.subtitle }}</div>
@@ -74,25 +74,25 @@
   const links = [
     {
       href: 'https://vuetifyjs.com/',
-      icon: 'mdi-text',
+      icon: 'i-mdi:text',
       subtitle: 'Learn about all things Vuetify in our documentation.',
       title: 'Documentation',
     },
     {
       href: 'https://vuetifyjs.com/introduction/why-vuetify/#feature-guides',
-      icon: 'mdi-star',
+      icon: 'i-mdi:star',
       subtitle: 'Explore available framework Features.',
       title: 'Features',
     },
     {
       href: 'https://vuetifyjs.com/components/all',
-      icon: 'mdi-widgets-outline',
+      icon: 'i-mdi:widgets-outline',
       subtitle: 'Discover components in the API Explorer.',
       title: 'Components',
     },
     {
       href: 'https://discord.vuetifyjs.com',
-      icon: 'mdi-account-group-outline',
+      icon: 'i-mdi:account-group-outline',
       subtitle: 'Connect with Vuetify developers.',
       title: 'Community',
     },

@@ -1,10 +1,13 @@
+import { presetIcons } from 'unocss'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-12-21',
   devtools: { enabled: true },
-  // ssr: false,
+  ssr: false,
   modules: [
     '@nuxt/fonts',
+    '@unocss/nuxt',
     'vuetify-nuxt-module',
   ],
 
@@ -34,6 +37,18 @@ export default defineNuxtConfig({
           xs: 0, sm: 600, md: 960, lg: 1280, xl: 1920, xxl: 2560,
         },
       },
+      icons: {
+        defaultSet: 'unocss-mdi',
+      },
+    },
+  },
+
+  unocss: {
+    presets: [
+      presetIcons(),
+    ],
+    outputToCssLayers: {
+      cssLayerName: layer => layer === 'properties' ? null : `uno-${layer}`,
     },
   },
 })

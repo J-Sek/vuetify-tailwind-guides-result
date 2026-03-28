@@ -3,9 +3,13 @@
 
 @layer vuetify-core;
 @layer vuetify-components;
+
+@layer uno-icons;
+
 @layer vuetify-overrides;
 @layer vuetify-utilities;
 
 @layer tailwind-utilities;
+@layer uno-default;
 
 @layer vuetify-final;
