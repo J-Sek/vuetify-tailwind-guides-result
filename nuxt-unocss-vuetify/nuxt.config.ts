@@ -26,7 +26,7 @@ export default defineNuxtConfig({
         defaultTheme: 'dark', // default 'system' requires `ssr: false` to avoid hydration warnings
       },
       icons: {
-        defaultSet: 'unocss-mdi',
+        defaultSet: 'mdi-svg',
       },
     },
   },
@@ -42,12 +42,11 @@ export default defineNuxtConfig({
         typography: 'md3',
         elevation: 'md3',
       }),
-      presetIcons(),
     ],
     safelist: [
       'font-heading', 'font-body', 'font-mono',
-      ...Array.from({ length: 25 }, (_, i) => `elevation-${i}`),
-      ...['', '-0', '-sm', '-lg', '-xl', '-pill', '-circle', '-shaped'].map(suffix => `rounded${suffix}`),
+      // ...Array.from({ length: 25 }, (_, i) => `elevation-${i}`),
+      // ...['', '-0', '-sm', '-lg', '-xl', '-pill', '-circle', '-shaped'].map(suffix => `rounded${suffix}`),
     ],
     outputToCssLayers: {
       cssLayerName: layer => layer === 'properties' ? null : `uno-${layer}`,
