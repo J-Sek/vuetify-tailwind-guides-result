@@ -15,4 +15,5 @@
 
 <script lang="ts" setup>
   import { mdiThemeLightDark } from '@mdi/js'
+  const VBtn = defineAsyncComponent(async () => (await import("vuetify/components/VBtn")).VBtn)
 </script>
