@@ -23,7 +23,7 @@
             variant="tonal"
           >
             <template #prepend>
-              <v-avatar icon="i-mdi:rocket-launch-outline" size="60" variant="tonal" class="ml-2 mr-4" />
+              <v-avatar :icon="`svg:${mdiRocketLaunchOutline}`" size="60" variant="tonal" class="ml-2 mr-4" />
             </template>
 
             <template #image>
@@ -44,7 +44,7 @@
 
         <v-col v-for="link in links" :key="link.href" cols="6">
           <v-card
-            append-icon="i-mdi:open-in-new"
+            :append-icon="`svg:${mdiOpenInNew}`"
             class="py-4"
             color="surface-variant"
             :href="link.href"
@@ -66,28 +66,37 @@
 </template>
 
 <script setup lang="ts">
+  import {
+    mdiAccountGroupOutline,
+    mdiOpenInNew,
+    mdiRocketLaunchOutline,
+    mdiStarCircleOutline,
+    mdiTextBoxOutline,
+    mdiWidgetsOutline,
+  } from '@mdi/js'
+
   const links = [
     {
       href: 'https://vuetifyjs.com/',
-      icon: 'i-mdi:text-box-outline',
+      icon: `svg:${mdiTextBoxOutline}`,
       subtitle: 'Learn about all things Vuetify in our documentation.',
       title: 'Documentation',
     },
     {
       href: 'https://vuetifyjs.com/introduction/why-vuetify/#feature-guides',
-      icon: 'i-mdi:star-circle-outline',
+      icon: `svg:${mdiStarCircleOutline}`,
       subtitle: 'Explore available framework Features.',
       title: 'Features',
     },
     {
       href: 'https://vuetifyjs.com/components/all',
-      icon: 'i-mdi:widgets-outline',
+      icon: `svg:${mdiWidgetsOutline}`,
       subtitle: 'Discover components in the API Explorer.',
       title: 'Components',
     },
     {
       href: 'https://discord.vuetifyjs.com',
-      icon: 'i-mdi:account-group-outline',
+      icon: `svg:${mdiAccountGroupOutline}`,
       subtitle: 'Connect with Vuetify developers.',
       title: 'Community',
     },
